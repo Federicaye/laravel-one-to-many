@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Models\Recipe;
+use App\Models\Category;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class RecipeController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -29,20 +28,13 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|max:255',
-            'slug' => 'required|max:255',
-            'category_id' => 'nullable|exists:category,id',
-            'prep_time' => 'max:250',
-            'instructions' => 'max:600',
-            'img' => 'nullable|image|max:1024',
-        ]);
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Recipe $recipe)
+    public function show(Category $category)
     {
         //
     }
@@ -50,7 +42,7 @@ class RecipeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Recipe $recipe)
+    public function edit(Category $category)
     {
         //
     }
@@ -58,7 +50,7 @@ class RecipeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Recipe $recipe)
+    public function update(Request $request, Category $category)
     {
         //
     }
@@ -66,7 +58,7 @@ class RecipeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Recipe $recipe)
+    public function destroy(Category $category)
     {
         //
     }
