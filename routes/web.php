@@ -24,6 +24,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::middleware(['auth'])->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('recipes', RecipeController::class);
+    Route::resource('categories', RecipeController::class);
+    Route::resource('ingredients', RecipeController::class);
 });
 
 
