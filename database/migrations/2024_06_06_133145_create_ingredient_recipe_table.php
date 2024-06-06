@@ -16,8 +16,8 @@ return new class extends Migration
            $table->unsignedBigInteger('recipe_id')->nullable();
            $table->foreign('recipe_id')->references('id')->on('recipes')->onDelete('set null');
 
-           $table->unsignedBigInteger('recipe_id')->nullable();
-           $table->foreign('recipe_id')->references('id')->on('recipes')->onDelete('set null');
+           $table->unsignedBigInteger('ingredient_id')->nullable();
+           $table->foreign('ingredient_id')->references('id')->on('ingredients')->onDelete('set null');
 
         });
     }
