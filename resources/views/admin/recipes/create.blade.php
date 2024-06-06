@@ -13,24 +13,34 @@
 </div>
 
 <div>
-<label for="category_id" class="form-label">Select Category</label>
-<select name="category_id" id="category_id" class="form-control">
-    <option value="">Select a category</option>
-    @foreach ($categories as $category)
-        <option value="{{$category->id}}" {{ $category->id == $recipe->category_id ? 'selected' : '' }}>{{$category->name}}
-        </option>
-    @endforeach
-</select>
-</div>
-
-<div>
-<input type="checkbox" class="btn-check" id="btn-check" autocomplete="off" name="ingredients[]">
-<label class="btn" for="btn-check">Single toggle</label>
+    <label for="category_id" class="form-label">Select Category</label>
+    <select name="category_id" id="category_id" class="form-control">
+        <option value="">Select a category</option>
+        @foreach ($categories as $category)
+            <option value="{{$category->id}}" {{ $category->id == $category->id ? 'selected' : '' }}>{{$category->name}}
+            </option>
+        @endforeach
+    </select>
 </div>
 
 <div class="mb-3">
     <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+
+<div>
+    <p>Seleziona gli ingredienti</p>
+    @foreach ($ingredients as $ingredient)
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                {{ $ingredient->name}}
+            </label>
+        </div>
+    @endforeach 
+
+
 </div>
 
 @endsection
