@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Recipe extends Model
 {
-    protected $fillable = ['name', 'slug', 'category_id', 'prep_time', 'instructions', 'img'];
+    
     use HasFactory;
-
+    protected $fillable = ['name', 'slug', 'category_id', 'prep_time', 'instructions', 'img'];
     public function category() {
         return $this->belongsTo(Category::class);
     }

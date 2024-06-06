@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Ingredient;
+
 
 class RecipeController extends Controller
 {
@@ -13,7 +16,9 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        //
+        
+        $recipes = Recipe::all();
+        return view('admin.recipes.index', compact('recipes'));
     }
 
     /**
@@ -21,7 +26,11 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        $ingredients = Ingredient::all();
+
+        return view('admin.recipes.create', compact('categories', 'ingredients'));
+
     }
 
     /**
@@ -52,7 +61,9 @@ class RecipeController extends Controller
      */
     public function edit(Recipe $recipe)
     {
-        //
+        $categories = Category::all();
+        $ingredients = Ingredient::all();
+        return view('admin.recipes.create', compact('categories', 'ingredients'));
     }
 
     /**
