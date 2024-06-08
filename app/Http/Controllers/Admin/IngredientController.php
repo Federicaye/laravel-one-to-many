@@ -17,13 +17,7 @@ class IngredientController extends Controller
         return view('admin.ingredients.index', compact('ingredients'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+   
 
     /**
      * Store a newly created resource in storage.
@@ -41,13 +35,6 @@ class IngredientController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Ingredient $ingredient)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

@@ -46,6 +46,9 @@ class RecipeController extends Controller
             'instructions' => 'max:600',
             'img' => 'nullable|image|max:1024',
         ]);
+        $form_data=$request->all();
+        $new_recipes = Recipe::create($form_data);
+        return redirect()->route('admin.recipes.index', $new_recipes->id);
     }
 
     /**

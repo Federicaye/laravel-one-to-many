@@ -1,9 +1,12 @@
 <?php
 
+
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\RecipeController;
+use App\Http\Controllers\Admin\IngredientController;
+use App\Http\Controllers\Admin\CategoryController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -24,8 +27,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::middleware(['auth'])->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('recipes', RecipeController::class);
-    Route::resource('categories', RecipeController::class);
-    Route::resource('ingredients', RecipeController::class);
+    Route::resource('categories', CategoryController::class)->except(['create', 'edit']);
+    Route::resource('ingredients', IngredientController::class)->except(['create', 'edit']);
 });
 
 

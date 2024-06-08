@@ -43,4 +43,8 @@
 
 </div>
 
+<div>
+<button type="submit" class="btn btn-danger">Create</button>
+<button type="reset" class="btn btn-secondary">Reset</button>
+</div>
 @endsection
