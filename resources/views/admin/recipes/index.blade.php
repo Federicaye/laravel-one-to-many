@@ -21,9 +21,9 @@
             <td>{{$recipe->instruction}}</td>
             <td>{{$recipe->image}}</td>
             <td>
-                <a href="{{route('admin.recipes.edit')}}"> <i class="fa-solid fa-pencil"></i></a>
-                <a href="{{route('admin.recipes.destroy')}}"><i class="fa-solid fa-trash"></i></a>
-                <a href="{{route('admin.recipes.show')}}"><i class="fa-solid fa-eye"></i></a>
+                <a href="{{route('admin.recipes.edit', $recipe->slug)}}"> <i class="fa-solid fa-pencil"></i></a>
+                <a href="{{route('admin.recipes.destroy', $recipe->slug)}}"><i class="fa-solid fa-trash"></i></a>
+                <a href="{{route('admin.recipes.show', $recipe->slug)}}"><i class="fa-solid fa-eye"></i></a>
             </td>
         </tr>
 

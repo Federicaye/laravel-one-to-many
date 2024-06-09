@@ -16,7 +16,7 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        
+
         $recipes = Recipe::all();
         return view('admin.recipes.index', compact('recipes'));
     }
@@ -38,17 +38,19 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $form_data = $request->validate([
             'name' => 'required|max:255',
-            'slug' => 'required|max:255',
-            'category_id' => 'nullable|exists:category,id',
-            'prep_time' => 'max:250',
-            'instructions' => 'max:600',
-            'img' => 'nullable|image|max:1024',
+            'category_id' => 'nullable|exists:categories,id',
+            'prep_time' => 'nullable|max:250',
+            'instructions' => 'nullable|max:600'
         ]);
-        $form_data=$request->all();
-        $new_recipes = Recipe::create($form_data);
-        return redirect()->route('admin.recipes.index', $new_recipes->id);
+        
+        $form_data['slug'] = Recipe::generateSlug($form_data['name']);
+        $new_recipe = Recipe::create($form_data);
+        if ($request->has('ingredients')) {
+            $new_recipe->ingredients()->attach($request->ingredients);
+        }
+        return redirect()->route('admin.recipes.index');
     }
 
     /**

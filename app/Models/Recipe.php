@@ -10,7 +10,7 @@ class Recipe extends Model
 {
     
     use HasFactory;
-    protected $fillable = ['name', 'slug', 'category_id', 'prep_time', 'instructions', 'img'];
+    protected $fillable = ['name', 'slug', 'category_id', 'prep_time', 'instructions'];
 
     public static function generateSlug($name)
     {

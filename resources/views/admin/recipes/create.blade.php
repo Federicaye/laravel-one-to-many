@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
+<form action="{{route('admin.recipes.store')}}" method="POST" enctype="multipart/form-data">
+@csrf
 <div class="mb-3">
     <label for="name" class="form-label">name</label>
     <input type="text" class="form-control" id="name" placeholder="name" name="name">
@@ -33,7 +34,7 @@
     @foreach ($ingredients as $ingredient)
 
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <input class="form-check-input" type="checkbox" value="{{$ingredient->id}}" id="{{$ingredient->id}}" name="ingredients[]">
             <label class="form-check-label" for="flexCheckDefault">
                 {{ $ingredient->name}}
             </label>
@@ -47,4 +48,5 @@
 <button type="submit" class="btn btn-danger">Create</button>
 <button type="reset" class="btn btn-secondary">Reset</button>
 </div>
+</form>
 @endsection
