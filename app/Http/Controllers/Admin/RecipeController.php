@@ -16,9 +16,10 @@ class RecipeController extends Controller
      */
     public function index()
     {
-
+$ingredients = Ingredient::all();
         $recipes = Recipe::all();
-        return view('admin.recipes.index', compact('recipes'));
+        $cathegories = Category::all();
+        return view('admin.recipes.index', compact('recipes', 'ingredients', 'cathegories'));
     }
 
     /**
@@ -46,10 +47,11 @@ class RecipeController extends Controller
         ]);
         
         $form_data['slug'] = Recipe::generateSlug($form_data['name']);
-        $new_recipe = Recipe::create($form_data);
+       $new_recipe = Recipe::create($form_data);
         if ($request->has('ingredients')) {
             $new_recipe->ingredients()->attach($request->ingredients);
-        }
+        } 
+        
         return redirect()->route('admin.recipes.index');
     }
 
